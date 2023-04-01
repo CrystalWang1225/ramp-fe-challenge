@@ -71,7 +71,7 @@ export function InputSelect<TItem>({
                 "RampInputSelect--dropdown-container-opened": isOpen,
               })}
               {...getMenuProps()}
-              style={{ top: dropdownPosition.top, left: dropdownPosition.left }}
+              style={{ position: "inherit", top: dropdownPosition.top, left: dropdownPosition.left }}
             >
               {renderItems()}
             </div>
@@ -121,6 +121,9 @@ const getDropdownPosition: GetDropdownPositionFn = (target) => {
   if (target instanceof Element) {
     const { top, left } = target.getBoundingClientRect()
     const { scrollY } = window
+    console.log("top", top);
+    console.log("left", left);
+    console.log("scrollY", scrollY);
     return {
       top: scrollY + top + 63,
       left,
