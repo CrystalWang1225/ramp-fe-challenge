@@ -121,9 +121,6 @@ const getDropdownPosition: GetDropdownPositionFn = (target) => {
   if (target instanceof Element) {
     const { top, left } = target.getBoundingClientRect()
     const { scrollY } = window
-    console.log("top", top);
-    console.log("left", left);
-    console.log("scrollY", scrollY);
     return {
       top: scrollY + top + 63,
       left,
