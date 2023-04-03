@@ -10,6 +10,8 @@ export function usePaginatedTransactions(): PaginatedTransactionsResult {
   > | null>(null)
 
   const fetchAll = useCallback(async () => {
+    // changed from fetchWithCache to fetchWithoutCache so updated data is always fetched
+    // however slows down the loading  
     const response = await fetchWithoutCache<PaginatedResponse<Transaction[]>, PaginatedRequestParams>(
       "paginatedTransactions",
       {
