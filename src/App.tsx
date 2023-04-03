@@ -23,6 +23,7 @@ export function App() {
     setIsLoading(true)
     transactionsByEmployeeUtils.invalidateData()
 
+    //set isLoading to false once employees are fetched instead of after paginatedTransactions
     await employeeUtils.fetchAll()
     setIsLoading(false)
 
@@ -66,6 +67,7 @@ export function App() {
               return
             }
             if (newValue.id.length === 0 ){
+              // if selected all employees
               await loadAllTransactions()
             } else {
               await loadTransactionsByEmployee(newValue.id)
